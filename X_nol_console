@@ -1,0 +1,113 @@
+from random import randint
+
+oyin = [ 
+		 ['_', '_', '_'],
+		 ['_', '_', '_'],
+		 ['_', '_', '_'] 
+	   ]
+
+
+
+for qator in oyin:
+	for ustun in qator:
+		print(ustun.center(10,' '), end=' ')
+	print('\n')
+
+oyinchi = input("Qaysi belgini tanlaysiz: ")
+if oyinchi == "X":
+	komp = "0"
+elif oyinchi == "0":
+	komp = "X"
+
+bosh_joy = 9
+
+while bosh_joy > 0:
+	if oyinchi == komp:
+		while True:
+			qator = randint(1,3)
+			ustun = randint(1,3)
+			if oyin[qator-1][ustun-1] == "_":
+				oyin[qator-1][ustun-1] = oyinchi
+				bosh_joy-=1
+				for qator in oyin:
+					for ustun in qator:
+						print(ustun.center(10,' '), end=' ')
+					print('\n')
+				break
+	else:
+		qator = int(input(f"{oyinchi} uchun qator: "))
+		ustun = int(input(f"{oyinchi} uchun ustun: "))
+
+		if oyin[qator-1][ustun-1] == "_":
+			oyin[qator-1][ustun-1] = oyinchi
+			bosh_joy-=1
+		else:
+			print("Bu joy band !")
+			continue
+
+#	#---------------- x ning yutish kombinatsiyalari ------------------
+
+	if oyin[0][0] == 'X' and oyin[0][1]=='X' and oyin[0][2]=='X':
+		print("siz yutdingiz x")
+		break
+	elif oyin[1][0] == 'X' and oyin[1][1]=='X' and oyin[1][2]=='X':
+		print("siz yutdingiz x")
+		break
+	elif oyin[2][0] == 'X' and oyin[2][1]=='X' and oyin[2][2]=='X':
+		print("siz yutdingiz x")
+		break
+
+	elif oyin[0][0] == 'X' and oyin[1][0]=='X' and oyin[2][0]=='X':
+		print("siz yutdingiz x")
+		break
+	elif oyin[0][1] == 'X' and oyin[1][1]=='X' and oyin[2][2]=='X':
+		print("siz yutdingiz x")
+		break
+	elif oyin[0][2] == 'X' and oyin[1][2]=='X' and oyin[2][2]=='X':
+		print("siz yutdingiz x")
+		break
+
+	elif oyin[0][0] == 'X' and oyin[1][1]=='X' and oyin[2][2]=='X':
+		print("siz yutdingiz x")
+		break
+	elif oyin[2][0] == 'X' and oyin[1][1]=='X' and oyin[0][2]=='X':
+		print("siz yutdingiz x")
+		break
+
+#	#---------------- 0 ning yutish kombinatsiyalari ------------------
+
+	if oyin[0][0] == '0' and oyin[0][1]=='0' and oyin[0][2]=='0':
+		print("siz yutdingiz 0")
+		break
+	elif oyin[1][0] == '0' and oyin[1][1]=='0' and oyin[1][2]=='0':
+		print("siz yutdingiz 0")
+		break
+	elif oyin[2][0] == '0' and oyin[2][1]=='0' and oyin[2][2]=='0':# gorizontalniy---------------------
+		print("siz yutdingiz 0")
+		break
+	
+	elif oyin[0][0] == '0' and oyin[1][0]=='0' and oyin[2][0]=='0':
+		print("siz yutdingiz 0")
+		break
+	elif oyin[0][1] == '0' and oyin[1][1]=='0' and oyin[2][1]=='0':
+		print("siz yutdingiz 0")
+		break
+	elif oyin[0][2] == '0' and oyin[1][2]=='0' and oyin[2][2]=='0':#vertikalniy---------------------
+		print("siz yutdingiz 0")
+		break
+
+	elif oyin[0][0] == '0' and oyin[1][1]=='0' and oyin[2][2]=='0':
+		print("siz yutdingiz 0")
+		break
+	elif oyin[2][0] == '0' and oyin[1][1]=='0' and oyin[0][2]=='0':
+		print("siz yutdingiz 0")
+		break
+
+	if bosh_joy == 0:
+		print("Durrang !")
+		break
+
+	if oyinchi == "X":
+		oyinchi = "0"
+	elif oyinchi == "0":
+		oyinchi = "X"
